@@ -1,3 +1,0 @@
-/mnt/c/users/diana/projects/cxx_scientific_computing/ScientificComputing/CMakeFiles/rebuild_cache.dir
-/mnt/c/users/diana/projects/cxx_scientific_computing/ScientificComputing/CMakeFiles/edit_cache.dir
-/mnt/c/users/diana/projects/cxx_scientific_computing/ScientificComputing/CMakeFiles/Scientific_Computing.dir

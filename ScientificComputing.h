@@ -2,6 +2,9 @@
 // or project specific include files.
 
 #pragma once
+#include "include/chapter1.h"
+#include "include/chapter2.h"
 #include <iostream>
+
 
 // TODO: Reference additional headers your program requires here.

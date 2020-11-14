@@ -1,11 +1,12 @@
 #pragma once
-#include <cassert>
-#include <cmath>
-#include <vector>
-
 #include "couts.h"
 #include "vector_operations.h"
 #include "matrix_operations.h"
+#include <cassert>
+#include <cmath>
+#include <vector>
+#include <iostream>
+
 
 struct ChapterTwoElements
 {

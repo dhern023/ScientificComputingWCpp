@@ -19,7 +19,7 @@ std::vector<std::vector<double>> matrix_operations::scale_matrix(const std::vect
 	std::vector<std::vector<double>> B;
 	for (size_t i = 0; i < A.size(); i++)
 	{
-		B.push_back(scale_vector(A[i], a));
+		B.push_back(vector_operations::scale_vector(A[i], a));
 	}
 	return B;
 }
@@ -69,7 +69,7 @@ std::vector<std::vector<double>> matrix_operations::matrix_multiplication(const 
 	{
 		for (size_t j = 0; j < B_T.size(); j++)
 		{
-			C[i][j] = inner_product(A[i], B_T[j]);
+			C[i][j] = vector_operations::inner_product(A[i], B_T[j]);
 		}
 	}
 	return C;
@@ -101,7 +101,7 @@ std::vector<double> matrix_operations::vector_matrix_product(std::vector<double>
 	std::vector<double> result;
 	for (size_t i = 0; i < A.size(); i++)
 	{
-		result.push_back(inner_product(v, A[i]));
+		result.push_back(vector_operations::inner_product(v, A[i]));
 	}
 	return result;
 }
@@ -114,7 +114,7 @@ std::vector<double> matrix_operations::matrix_vector_product(std::vector<std::ve
 	std::vector<double> result;
 	for (size_t i = 0; i < A.size(); i++)
 	{
-		result.push_back(inner_product(v, A[i]));
+		result.push_back(vector_operations::inner_product(v, A[i]));
 	}
 	return result;
 }

@@ -1,5 +1,7 @@
 #pragma once
+#include <iostream>
 #include <vector>
+
 
 // Printing to Console =========================================================================
 namespace couts 

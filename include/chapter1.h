@@ -1,10 +1,10 @@
 #pragma once
-#include <vector>
-
 #include "couts.h"
 #include "matrix_operations.h"
 #include "norms.h"
 #include "vector_operations.h"
+#include <vector>
+#include <iostream>
 
 struct ChapterOneElements 
 {

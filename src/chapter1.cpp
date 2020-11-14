@@ -8,8 +8,7 @@ double multiply_two_numbers(double x1, double x2)
 	return x1 * x2;
 }
 
-void chapter1_couts()
-{
+void chapter1_couts() {
 	//1.2
 	std::cout << chapter1_elements.prompts[0] << std::endl;
 	for (size_t i = 0; i < chapter1_elements.multiply_pairs.size(); i++)

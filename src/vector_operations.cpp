@@ -1,7 +1,7 @@
 #include "vector_operations.h"
 
 // Inplace vector operations
-double inner_product(const std::vector<double>& v1, const std::vector<double>& v2)
+double vector_operations::inner_product(std::vector<double> v1, std::vector<double> v2)
 {
 	assert(v1.size() == v2.size());
 	double result = v1[0] * v2[0];
@@ -55,7 +55,7 @@ std::vector<double> vector_operations::vector_subtraction(std::vector<double> v1
 	return v;
 }
 
-std::vector<double> vector_operations::scale_vector(const std::vector<double>& v, const double& a)
+std::vector<double> vector_operations::scale_vector(std::vector<double> v, double a)
 {
 	if (a == 0)
 	{
