@@ -27,13 +27,13 @@ void files::vector_write(std::vector<double> v, std::string outname, bool append
 	write_output << "{";
 	assert(write_output.good());
 	write_output.flush();
-	for (size_t i = 0; i < v.size(); i++)
+	for (size_t i = 0; i < v.size() - 1; i++)
 	{
 		write_output << v[i] << ",";
 		assert(write_output.good());
 		write_output.flush();
 	}
-	write_output << "}";
+	write_output << v[v.size() - 1] << "}";
 	assert(write_output.good());
 	write_output.flush();
 
@@ -71,16 +71,19 @@ void files::matrix_write(std::vector<std::vector<double>> A, std::string outname
 		assert(write_output.good());
 		write_output.flush();
 
-		for (size_t j = 0; j < A[0].size(); j++)
+		for (size_t j = 0; j < A[i].size()-1; j++)
 		{
 			write_output << A[i][j] << ",";
 			assert(write_output.good());
 			write_output.flush();
 		}
+		write_output << A[i][A[i].size() - 1];
+		assert(write_output.good());
+		write_output.flush();
 
 		if (i == A.size()-1)
 		{
-			write_output << "}";
+			write_output << "}}";
 			assert(write_output.good());
 			write_output.flush();
 		}

@@ -3,11 +3,11 @@
 void couts::cout_vector(std::vector<double> v)
 {
 	std::cout << "{";
-	for (size_t i = 0; i < v.size(); i++)
+	for (size_t i = 0; i < v.size() - 1; i++)
 	{
 		std::cout << v[i] << ",";
 	}
-	std::cout << "}" << std::endl;
+	std::cout << v[v.size() - 1] << "}" << std::endl;
 }
 
 void couts::cout_matrix(std::vector<std::vector<double>> A)
@@ -16,18 +16,19 @@ void couts::cout_matrix(std::vector<std::vector<double>> A)
 	for (size_t i = 0; i < A.size(); i++)
 	{
 		std::cout << "{";
-		for (size_t j = 0; j < A[0].size(); j++)
+		for (size_t j = 0; j < A[i].size() - 1; j++)
 		{
 			std::cout << A[i][j] << ",";
 		}
+		std::cout << A[i][A[i].size() - 1];
 
 		if (i == A.size() - 1)
 		{
-			std::cout << "}" << std::endl;
+			std::cout << "}}" << std::endl;
 		}
 		else
 		{
-			std::cout << "}, " << std::endl;
+			std::cout << "}," << std::endl;
 		}
 	}
 }
