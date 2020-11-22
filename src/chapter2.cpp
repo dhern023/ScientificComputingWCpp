@@ -2,6 +2,9 @@
 
 struct ChapterTwoElements chapter2_elements;
 
+std::vector <double(*)(double)> convergent_pair = NewtonRaphsonExamples().function_pair_result(0);
+std::vector <double(*)(double)> divergent_pair = NewtonRaphsonExamples().function_pair_result(1);
+
 std::vector<sChapter2BaseArgs> vArgs = {
 	sChapter2BaseArgs(10, 5.0, 10.0, -11.0, { 1,1,1 }),
 	sChapter2BaseArgs(20, 5.0, 67.0, 11.0, { 1,0,1 }),
@@ -46,39 +49,6 @@ void inequality2(int j, double p, double q, double y, std::vector<bool> vBool)
 	}
 }
 
-void newton_raphson_example(double seed)
-{
-	auto f = [](double x) { return std::exp(x) + std::pow(x, 3) - 5; };
-	auto f_prime = [](double x) { return std::exp(x) + 3 * x * x; };
-
-	double epsilon = 10e-6;
-	std::vector<double> results(2, seed);
-	do
-	{
-		results[0] = results[1];
-		results[1] = results[0] - f(results[0]) / f_prime(results[0]);
-		std::cout << results[0] << ", " << results[1] << std::endl;
-	} while (std::abs(results[1] - results[0]) > epsilon);
-
-	std::cout << results[1] << std::endl;
-}
-
-void newton_method_wont_converge(double seed)
-{
-	auto f = [](double x) { return -0.74 + 0.765 * x + 1.1 * x * x - 3.55 * std::pow(x, 3); };
-	auto f_prime = [](double x) { return 0.765 + 2.2 * x - 3.55 * 3 * std::pow(x, 2); };
-
-	double epsilon = 10e-6;
-	std::vector<double> results(2, seed);
-	do
-	{
-		results[0] = results[1];
-		results[1] = results[0] - f(results[0]) / f_prime(results[0]);
-		std::cout << results[0] << ", " << results[1] << std::endl;
-	} while (std::abs(results[1] - results[0]) > epsilon);
-
-	std::cout << results[1] << std::endl;
-}
 
 void chapter2_couts()
 {
@@ -150,10 +120,9 @@ void chapter2_couts()
 
 	//Exercise 2.6
 	std::cout << chapter2_elements.prompts[9] << std::endl;
-	newton_raphson_example(0);
+	newton_raphson_method(convergent_pair[0], convergent_pair[1], 0);
 
-	/*
 	std::cout << chapter2_elements.prompts[10] << std::endl;
-	newton_method_wont_converge(5.0 / 9.0); //warning, will not converge
-	*/
+	newton_raphson_method(divergent_pair[0], divergent_pair[1], 5.0/9.0);
+
 }

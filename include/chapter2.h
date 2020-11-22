@@ -2,11 +2,12 @@
 #include "couts.h"
 #include "vector_operations.h"
 #include "matrix_operations.h"
+#include "single_variable_non_linear_solvers.h"
+#include "example_functions.h"
 #include <cassert>
 #include <cmath>
 #include <vector>
 #include <iostream>
-
 
 struct ChapterTwoElements
 {
@@ -55,7 +56,5 @@ struct sChapter2BaseArgs
 
 void inequality1(double x, double y);
 void inequality2(int j, double p, double q, double y, std::vector<bool> vBool);
-void newton_raphson_example(double seed);
-void newton_method_wont_converge(double seed);
 
 void chapter2_couts();

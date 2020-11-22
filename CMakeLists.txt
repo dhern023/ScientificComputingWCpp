@@ -3,6 +3,8 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
+project ("ScientificComputing")
+
 include_directories(
 	${PROJECT_SOURCE_DIR}/include
     ${PROJECT_SOURCE_DIR}/src
@@ -14,6 +16,6 @@ file(GLOB all_SRCS
 )
 
 # Add source to this project's executable.
-add_executable (Scientific_Computing "ScientificComputing.cpp" "ScientificComputing.h" ${all_SRCS})
+add_executable (ScientificComputing "ScientificComputing.cpp" "ScientificComputing.h" ${all_SRCS})
 
 # TODO: Add tests and install targets if needed.
