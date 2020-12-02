@@ -4,7 +4,8 @@
 
 int main()
 {
-	chapter1_couts();
-	chapter2_couts();
+//	chapter1_couts();
+//	chapter2_couts();
+	chapter4_couts();
 	return 0;
 }

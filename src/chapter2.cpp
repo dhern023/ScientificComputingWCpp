@@ -49,7 +49,6 @@ void inequality2(int j, double p, double q, double y, std::vector<bool> vBool)
 	}
 }
 
-
 void chapter2_couts()
 {
 	//Exercise 2.1
@@ -124,5 +123,4 @@ void chapter2_couts()
 
 	std::cout << chapter2_elements.prompts[10] << std::endl;
 	newton_raphson_method(divergent_pair[0], divergent_pair[1], 5.0/9.0);
-
 }
