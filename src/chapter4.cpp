@@ -167,7 +167,6 @@ void matrix_deallocate_demonstration(int rows, int cols)
 				C[i].push_back(A[i][j] + B[i][j]); //Should this in own for-loop?
 			}
 		}
-		couts::cout_matrix(C);
 		//free memory
 	}
 }
@@ -182,12 +181,20 @@ Its lock attribute can be used to get to the non-deleted resource.
 void weak_pointer_practice()
 {
 	std::shared_ptr<double> p_x(new double);
+	std::cout << "p_x use count: " << p_x.use_count() << "\n";
+	*p_x = 5;
 
-	/*Copy 4.3.
-	Initialize a weak_ptr to the value p_x.
-	Experiment with  printing p_x's original value (i.e., the value 5) 
-	via this weak smart pointer before, and after, the p_x is reset on line 14.
-	*/
+	//Initialize a weak_ptr to the value p_x.
+	std::weak_ptr<double> p_w = p_x;
+	std::cout << "p_x use count: " << p_x.use_count() << "\n";
+	//p_x's original value (i.e., the value 5) via this weak smart pointer...
+	std::cout << "p_w resource existed: " << p_w.expired() << "\n";
+	//...before the p_x is reset.
+	std::cout << "p_w stored resource : " << p_w.lock() << "\n";
+	p_x.reset();
+	std::cout << "p_x use count: " << p_x.use_count() << "\n";
+	//...after the p_x is reset.
+	std::cout << "p_w resource existed: " << p_w.expired() << "\n";
 }
 
 void chapter4_couts()
@@ -223,4 +230,7 @@ void chapter4_couts()
 		chapter4_elements.int_pairs[1][0],
 		chapter4_elements.int_pairs[1][1]
 	);
+
+	//Exercise 4.5
+	weak_pointer_practice();
 }
