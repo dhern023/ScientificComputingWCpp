@@ -68,45 +68,45 @@ void chapter2_couts()
 	//Exercise 2.4
 	std::cout << chapter2_elements.prompts[2] << std::endl;
 	couts::cout_vector(
-		vector_operations::vector_subtraction(
+		vector_spaces::subtraction(
 			chapter2_elements.v_examples2[0],
 			chapter2_elements.v_examples2[1])
 	);
 
 	std::cout << chapter2_elements.prompts[3] << std::endl;
 	couts::cout_vector(
-		matrix_operations::matrix_vector_product(
+		vector_spaces::multiplication(
 			chapter2_elements.m_examples[0],
 			chapter2_elements.v_examples2[1])
 	);
 
 	std::cout << chapter2_elements.prompts[4] << std::endl;
 	couts::cout_vector(
-		vector_operations::vector_subtraction(
-			matrix_operations::matrix_vector_product(chapter2_elements.m_examples[0], chapter2_elements.v_examples2[1]),
+		vector_spaces::subtraction(
+			vector_spaces::multiplication(chapter2_elements.m_examples[0], chapter2_elements.v_examples2[1]),
 			chapter2_elements.v_examples2[1]
 		)
 	);
 
 	std::cout << chapter2_elements.prompts[5] << std::endl;
 	couts::cout_matrix(
-		matrix_operations::matrix_subtraction(
-			matrix_operations::scale_matrix(chapter2_elements.m_examples[0], 4),
-			matrix_operations::scale_matrix(chapter2_elements.m_examples[1], 3)
+		vector_spaces::subtraction(
+			vector_spaces::scalar_multiplication(chapter2_elements.m_examples[0], 4),
+			vector_spaces::scalar_multiplication(chapter2_elements.m_examples[1], 3)
 		)
 	);
 
 	std::cout << chapter2_elements.prompts[6] << std::endl;
 	couts::cout_matrix(
-		matrix_operations::matrix_addition(
-			matrix_operations::scale_matrix(chapter2_elements.m_examples[0], 4),
-			matrix_operations::scale_matrix(chapter2_elements.m_examples[1], -3)
+		vector_spaces::addition(
+			vector_spaces::scalar_multiplication(chapter2_elements.m_examples[0], 4),
+			vector_spaces::scalar_multiplication(chapter2_elements.m_examples[1], -3)
 		)
 	);
 
 	std::cout << chapter2_elements.prompts[7] << std::endl;
 	couts::cout_matrix(
-		matrix_operations::matrix_multiplication(
+		vector_spaces::multiplication(
 			chapter2_elements.m_examples[0],
 			chapter2_elements.m_examples[1])
 	);
@@ -114,7 +114,7 @@ void chapter2_couts()
 	//Exercise 2.5
 	std::cout << chapter2_elements.prompts[8] << std::endl;
 	couts::cout_matrix(
-		matrix_operations::matrix_invert_2x2(chapter2_elements.m_examples[2])
+		vector_spaces::matrix_invert_2x2(chapter2_elements.m_examples[2])
 	);
 
 	//Exercise 2.6

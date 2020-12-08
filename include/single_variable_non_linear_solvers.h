@@ -11,5 +11,3 @@ It's not useful in that regard (e.g., a(x-h)^2) + b for {h>=0, b>=0}, but it onl
 */
 std::vector<std::vector<double>> calculate_dichotomy_candidates(double (*p_function)(double), std::vector<double> interval);
 double dichotomy_method(double (*p_function)(double), std::vector<double> domain, int max_iterations = 20);
-
-

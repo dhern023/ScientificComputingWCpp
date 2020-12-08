@@ -1,8 +1,7 @@
 #pragma once
 #include "couts.h"
-#include "matrix_operations.h"
 #include "norms.h"
-#include "vector_operations.h"
+#include "vector_space_operations.h"
 #include <vector>
 #include <iostream>
 

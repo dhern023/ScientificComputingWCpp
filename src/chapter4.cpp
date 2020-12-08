@@ -11,7 +11,7 @@ void practice_precision_arithmetic()
 	int* p_k;
 	p_k = new int; //allocate a location in memory
 	*p_k = i; //store the contents of the variable i in this location
-	*p_j = 0.0;
+	*p_j = 0;
 
 	std::cout << "i = " << i << std::endl;
 	std::cout << "*p_k = " << *p_k << std::endl;
@@ -32,8 +32,7 @@ void swap_values_via_pointers(int x1, int x2)
 
 	std::cout << *p_x1 << " " << *p_x2 << std::endl;
 
-	int* p_temp;
-	p_temp = new int;
+	int* p_temp = new int;
 
 	*p_temp = *p_x1;
 	*p_x1 = *p_x2;

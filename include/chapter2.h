@@ -1,7 +1,6 @@
 #pragma once
 #include "couts.h"
-#include "vector_operations.h"
-#include "matrix_operations.h"
+#include "vector_space_operations.h"
 #include "single_variable_non_linear_solvers.h"
 #include "example_functions.h"
 #include <cassert>

@@ -17,25 +17,25 @@ void chapter1_couts() {
 	}
 	//1.3
 	std::cout << chapter1_elements.prompts[1] << std::endl;
-	std::cout << vector_operations::inner_product(chapter1_elements.vector_examples[0], chapter1_elements.vector_examples[1]) << std::endl;
+	std::cout << vector_spaces::inner_product(chapter1_elements.vector_examples[0], chapter1_elements.vector_examples[1]) << std::endl;
 
 	std::cout << chapter1_elements.prompts[2] << std::endl;
 	std::cout << norms::two_norm(chapter1_elements.vector_examples[0], chapter1_elements.vector_examples[1]) << std::endl;
 
 	//1.4
 	std::cout << chapter1_elements.prompts[3] << std::endl;
-	std::vector<std::vector<double>> A_A = matrix_operations::matrix_addition(chapter1_elements.A, chapter1_elements.A);
+	std::vector<std::vector<double>> A_A = vector_spaces::addition(chapter1_elements.A, chapter1_elements.A);
 	couts::cout_matrix(A_A);
 
 	std::cout << chapter1_elements.prompts[4] << std::endl;
-	std::vector<std::vector<double>> A_T = matrix_operations::matrix_transpose(chapter1_elements.A);
+	std::vector<std::vector<double>> A_T = vector_spaces::transpose(chapter1_elements.A);
 	couts::cout_matrix(A_T);
 
 	std::cout << chapter1_elements.prompts[5] << std::endl;
-	std::vector<std::vector<double>> B = matrix_operations::matrix_multiplication(chapter1_elements.A, chapter1_elements.A);
+	std::vector<std::vector<double>> B = vector_spaces::multiplication(chapter1_elements.A, chapter1_elements.A);
 	couts::cout_matrix(B);
 
 	//1.6
 	std::cout << chapter1_elements.prompts[6] << std::endl;
-	std::cout << vector_operations::vector_avg(chapter1_elements.vector_examples[1]) << std::endl;
+	std::cout << vector_spaces::vector_avg(chapter1_elements.vector_examples[1]) << std::endl;
 }

@@ -1,5 +1,5 @@
 #pragma once
-#include "vector_operations.h"
+#include "vector_space_operations.h"
 #include <cassert>
 #include <cmath>
 #include <vector>
