@@ -4,7 +4,6 @@
 #include <memory>
 #include <vector>
 
-
 struct Chapter4Elements
 {
 	std::vector<std::string> prompts = {

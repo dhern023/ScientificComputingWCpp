@@ -1,4 +1,4 @@
-#include "vector_space_operations.h"
+#include "vector_spaces.h"
 
 // Inplace operations
 double vector_spaces::inner_product(std::vector<double> v1, std::vector<double> v2)

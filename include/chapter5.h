@@ -21,4 +21,5 @@ void swap_via_passed_pointers(double* x1, double* x2);
 void swap_via_passed_references(double& r_x1, double& r_x2);
 //Exercise 5.4
 void calculate_mean_median(std::vector<double> v, double& mean, double& standard_deviation);
-//Exercise 4.5
+
+void chapter5_couts();

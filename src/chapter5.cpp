@@ -61,5 +61,8 @@ void calculate_mean_median(std::vector<double> v, double& mean, double& standard
 	standard_deviation = std::sqrt(numerator / denominator);
 }
 
-//Exercise 4.5
+//Exercise 5.5 - 5.8 incorporated in namespaces.
 
+//Exercise 5.9
+
+void chapter5_couts() {};
