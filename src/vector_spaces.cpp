@@ -84,7 +84,7 @@ std::vector<double> vector_spaces::subtraction(std::vector<double> v1, std::vect
 
 std::vector<std::vector<double>> vector_spaces::subtraction(std::vector<std::vector<double>> A, std::vector<std::vector<double>> B)
 {
-	/// Initial subtractions do not reduce floating point accuracy.
+	// Initial subtractions do not reduce floating point accuracy.
 
 	assert(A.size() == B.size());
 	assert(A[0].size() == B[0].size());

@@ -1,4 +1,8 @@
 #pragma once
+#include "couts.h"
+#include "norms.h"
+#include "matrices.h"
+#include "vector_spaces.h"
 #include <cassert>
 #include <iostream>
 #include <vector>
@@ -6,9 +10,34 @@
 
 struct Chapter5Elements 
 {
-	std::vector<double> v1 = {
+	std::vector<double> scalar_examples = {
 		12.0, 5.0, 2020.0
 	};
+
+	std::vector<std::vector<double>> vector_examples = {
+		{ 12.0, 5.0, 2020.0 },
+		{ 1.0, 1.0, 3.0 }, //b in Ly = b
+		{-11, 13.0/3.0, -1.0/5.0}, //y in Ux = y
+		{ 1.0, 5.0, 5.0 }, // b in Ax = b
+	};
+
+	double mu = 0.0;
+	double sigma = 0.0;
+
+	std::vector<std::vector<std::vector<double>>> square_matrix_examples =
+	{
+		{{1,5,0}, {7,1,2}, {0,0,1}},
+		{{-2,0,1}, {1,0,0}, {4,1,0}},
+		{{1,3,3}, {12,6,9}, {-1,-3,3}}, // A in Ax = b
+	};
+
+	std::vector<std::vector<std::vector<double>>> triangular_matrix_examples =
+	{
+		{{1,0,0}, {2,1,0}, {3,2,1}}, //L in Ly = b
+		{{-3,-1,2}, {0,5.0/3.0,2.0/3.0}, {0,0,1.0/5.0}}, //U in Ux = y
+	};
+
+
 };
 
 

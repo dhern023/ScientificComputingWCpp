@@ -1,6 +1,6 @@
 #include "../include/matrices.h"
 
-void matrices::LU_decomposition(std::vector<std::vector<double>> A, std::vector<std::vector<double>>& L, std::vector<std::vector<double>>& U)
+void matrices::lu_decomposition(std::vector<std::vector<double>> A, std::vector<std::vector<double>>& L, std::vector<std::vector<double>>& U, std::vector<double>& p)
 {
 	/*
 	Performs the LU decomposition of a matrix with pivoting, to create
@@ -24,9 +24,9 @@ void matrices::LU_decomposition(std::vector<std::vector<double>> A, std::vector<
 	//check all matrices are the same size
 	assert(A.size() == L.size() && A.size() == U.size());
 
-	//initialize the permutation vector, a cyclic group of order A.size().
-	std::vector<double> p;
-	for (size_t i = 0; i < A.size(); i++) { p.push_back(i); }
+	// the permutation vector is a cyclic group of order A.size().
+	// reassigns just to be safe
+	for (size_t i = 0; i < A.size(); i++) { p[i] = i; }
 
 	double max = 0.0;
 	double candidate = 0.0;
@@ -86,10 +86,11 @@ double matrices::determinant(std::vector<std::vector<double>> A)
 	det(A) = det(L)*det(U) = det(U) = prod(diag(U)).
 	*/
 
-	//Factor A = LU
+	//Factor PA = LU
 	std::vector<std::vector<double>> L(A.size(), std::vector<double>(A.size()));
 	std::vector<std::vector<double>> U(A.size(), std::vector<double>(A.size()));
-	matrices::LU_decomposition(A, L, U);
+	std::vector<double> p(A.size());
+	matrices::lu_decomposition(A, L, U, p);
 
 	//Calculate det(U) = prod(diag(U))
 	double result = 1.0;
@@ -99,4 +100,77 @@ double matrices::determinant(std::vector<std::vector<double>> A)
 	}
 
 	return result;
+}
+
+void matrices::lower_triangular_solver(std::vector<std::vector<double>> L, std::vector<double> b, std::vector<double> &y)
+{
+	/*
+	Solves the linear system Ly = b via forward elimination,
+	in which L is lower-triangular.
+	*/
+	assert(L.size() == L[1].size());
+	assert(L.size() == y.size());
+	assert(b.size() == y.size());
+
+	double sum;
+	for (size_t i = 0; i < L.size(); i++)
+	{
+		sum = 0;
+		for (size_t j = 0; j < i; j++)
+		{
+			sum += L[i][j] * y[j];
+		}
+		y[i] = (b[i] - sum) / L[i][i];
+	}
+}
+
+void matrices::upper_triangular_solver(std::vector<std::vector<double>> U, std::vector<double> b, std::vector<double> &x)
+{
+	/*
+	Solves the linear system Ux = b via backward substitution,
+	in which U is upper-triangular.
+	*/
+	assert(U.size() == U[1].size());
+	assert(U.size() == x.size());
+	assert(b.size() == x.size());
+
+	double sum;
+	for (size_t i = U.size(); i-- > 0 ; )
+	{
+		sum = 0;
+		for (size_t j = i + 1; j < U.size(); j++)
+		{
+			sum += U[i][j] * x[j];
+		}
+		x[i] = (b[i] - sum)/ U[i][i];
+	}
+}
+
+void matrices::linear_system_solver(std::vector<std::vector<double>> A, std::vector<double> b, std::vector<double>& x)
+{
+	/*
+	Solves linear system Ax = b by performing PA = LU via Pivoting Gaussian Elimination
+	to solve linear systems 
+		Ly = Pb via forwards substitution 
+		Ux = y via backwards substitution.
+	*/
+	assert(A.size() == A[1].size());
+	assert(A.size() == x.size());
+	assert(b.size() == x.size());
+
+	//Factor A = LU
+	std::vector<std::vector<double>> L(A.size(), std::vector<double>(A[0].size()));
+	std::vector<std::vector<double>> U(A.size(), std::vector<double>(A[0].size()));
+	std::vector<double> p(A.size());
+	matrices::lu_decomposition(A, L, U, p);
+
+	std::vector<double> permuted_b;
+	std::transform(p.begin(), p.end(), std::back_inserter(permuted_b), [&](size_t i) { return b[i]; });
+
+	//Solve Ly = Pb for y
+	std::vector<double> y(L.size());
+	matrices::lower_triangular_solver(L, permuted_b, y);
+
+	//Solve Ux = y
+	matrices::upper_triangular_solver(U, y, x);
 }
