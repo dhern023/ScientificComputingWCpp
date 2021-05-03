@@ -6,7 +6,8 @@ Makefile
 ScientificComputing
 
 # Visual Studio
-.vs/
+.vs
+.vscode
 out/
 
 # Executables
