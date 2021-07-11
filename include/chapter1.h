@@ -1,5 +1,5 @@
 #pragma once
-#include "couts.h"
+#include "linear_algebra/couts.h"
 #include "norms.h"
 #include "vector_spaces.h"
 #include <vector>

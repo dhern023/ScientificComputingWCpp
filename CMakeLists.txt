@@ -1,9 +1,6 @@
-﻿# CMakeList.txt : CMake project for Scientific Computing, include source and define
-# project specific logic here.
-#
-cmake_minimum_required (VERSION 3.8)
+cmake_minimum_required (VERSION 3.11)
 
-project ("ScientificComputing")
+project("ScientificComputing")
 
 include_directories(
 	${PROJECT_SOURCE_DIR}/include
@@ -15,14 +12,14 @@ file(GLOB all_SRCS
     ${PROJECT_SOURCE_DIR}/src/*.cpp
 )
 
-add_executable(ScientificComputing "ScientificComputing.cpp" "ScientificComputing.h" ${all_SRCS})
+include(FetchContent)
+FetchContent_Declare(
+        linear_algebra
+        GIT_REPOSITORY "https://github.com/dhern023/linear_algebra"
+        GIT_TAG main
+)
 
-link_directories()
+FetchContent_MakeAvailable(linear_algebra) # add other fetched names here
 
-find_package(linear_algebra)
-if (LINEAR_ALGEBRA_FOUND)
-  include_directories(${LINEAR_ALGEBRA_INCLUDE_DIRS})
-  target_link_libraries (ScientificComputing ${LINEAR_ALGEBRA_LIBRARIES})
-endif (LINEAR_ALGEBRA_FOUND)
-
-# TODO: Add tests and install targets if needed.
+add_executable(${PROJECT_NAME} "ScientificComputing.cpp" "ScientificComputing.h" ${all_SRCS})
+target_link_libraries(${PROJECT_NAME} linear_algebra) # add other fetched names here
