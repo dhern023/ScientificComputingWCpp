@@ -2,10 +2,10 @@
 // or project specific include files.
 
 #pragma once
-#include "include/chapter1.h"
-#include "include/chapter2.h"
-#include "include/chapter4.h"
-#include "include/chapter5.h"
+#include "scientific_computing/chapter1.h"
+#include "scientific_computing/chapter2.h"
+#include "scientific_computing/chapter4.h"
+#include "scientific_computing/chapter5.h"
 
 #include <iostream>
 
