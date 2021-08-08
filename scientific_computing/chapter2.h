@@ -1,10 +1,10 @@
 #pragma once
 
-#include "single_variable_non_linear_solvers.h"
 #include "example_functions.h"
 
 #include <linear_algebra/couts.h>
 #include <linear_algebra/vector_spaces.h>
+#include <numerical_solvers/single_variable_non_linear_solvers.h>
 #include <cassert>
 #include <cmath>
 #include <vector>
