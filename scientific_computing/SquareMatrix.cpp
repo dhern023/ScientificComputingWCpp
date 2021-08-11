@@ -25,6 +25,13 @@ SquareMatrix::SquareMatrix(std::vector< std::vector< double>> A)
 
 // Operators
 //overload assignment operator
+SquareMatrix& SquareMatrix::operator=(const SquareMatrix& square_matrix)
+{
+	matrix = square_matrix.matrix;
+	size = square_matrix.size;
+	return *this;
+}
+
 //overload unary substraction operator
 //overload binary add/substraction
 

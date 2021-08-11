@@ -28,7 +28,7 @@ public:
 	SquareMatrix(std::vector< std::vector< double>> A); //Pass in matrix to constructor
 
 	// Operators
-	//overload assignment operator
+	SquareMatrix& operator=(const SquareMatrix& square_matrix); //overload assignment operator
 	//overload unary substraction operator```
 	//overload binary add/substraction`
 
