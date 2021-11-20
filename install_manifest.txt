@@ -1,2 +1,0 @@
-/usr/local/lib/liblinear_algebra.a
-/usr/local/lib/libnumerical_solvers.a

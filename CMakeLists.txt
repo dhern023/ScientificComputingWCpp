@@ -9,6 +9,7 @@ include_directories(
 file(GLOB all_SRCS
 	${PROJECT_SOURCE_DIR}/scientific_computing/*.h
     ${PROJECT_SOURCE_DIR}/scientific_computing/*.cpp
+    ${PROJECT_SOURCE_DIR}/scientific_computing/*.hpp
 )
 
 include(FetchContent)
